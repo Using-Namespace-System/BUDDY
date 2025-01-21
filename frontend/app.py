@@ -24,7 +24,7 @@ prompt_input = st.text_input("Enter your prompt", "")
 # Buttons for interaction
 if st.button('Process Prompt'):
     # Send document and prompt to the backend for processing
-    response = requests.post("http://127.0.0.1:5000/process_prompt", json={
+    response = requests.post("http://172.18.0.2:5000/process_prompt", json={
         'document': document_text,
         'prompt': prompt_input
     })
@@ -45,7 +45,7 @@ if st.button('Process Prompt'):
             # Refine changes button (if user wants to make further iterations)
             if st.button('Refine Changes'):
                 st.write("Refining changes...")
-                response = requests.post("http://127.0.0.1:5000/refine_changes", json={
+                response = requests.post("http://172.18.0.2:5000/refine_changes", json={
                     'document': document_text,
                     'prompt': prompt_input
                 })

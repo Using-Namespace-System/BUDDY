@@ -1,0 +1,21 @@
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: backend/Dockerfile
+    runtime: nvidia  # NVIDIA runtime for GPU access
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=backend/inference_service.py
+      - NVIDIA_VISIBLE_DEVICES=all  # access to all GPUs
+    working_dir: /workspace
+  frontend:
+    build:
+      context: ..
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      - STREAMLIT_APP=frontend/app.py
+    working_dir: /workspace

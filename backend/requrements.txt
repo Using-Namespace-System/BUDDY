@@ -1,3 +1,0 @@
-flask==2.0.1
-transformers==4.9.2
-torch==1.9.0

@@ -1,0 +1,22 @@
+{
+    "name": "buddy-backend",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "backend",  // Refers to the backend service in docker-compose.yml
+    "workspaceFolder": "/workspace",
+    //"postCreateCommand": "pip install --no-cache-dir -r /workspace/backend/requirements.txt",
+    "forwardPorts": [
+      5000
+    ],
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind"
+      ],
+    "customizations": {
+        "vscode": {
+            "extensions":[  
+                "ms-python.python",
+                "dbaeumer.vscode-eslint"
+            ]
+        }
+    }
+  }
+  

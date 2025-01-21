@@ -1,0 +1,21 @@
+{
+    "name": "buddy-frontend",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "frontend",  // Refers to the frontend service in docker-compose.yml
+    "workspaceFolder": "/workspace",
+    //"postCreateCommand": "pip install --no-cache-dir -r /workspace/frontend/requirements.txt",
+    "forwardPorts": [
+      8501
+    ],
+    "mounts": [
+      "source=${localWorkspaceFolder},target=/workspace,type=bind"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions":[      
+                "ms-python.python",
+                "streetsidesoftware.code-spell-checker"
+            ]
+        }
+    }
+}

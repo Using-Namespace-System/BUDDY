@@ -18,8 +18,8 @@ model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-large", devic
 # Set pad_token to eos_token (common practice for text generation models)
 tokenizer.pad_token = tokenizer.eos_token
 
-# Token limit for GPT-2 (important to ensure we don't exceed the model's token capacity)
-MAX_TOKENS = 1024
+# Get the maximum token length from the model's configuration
+MAX_TOKENS = model.config.max_length
 
 @app.before_request
 def log_request_info():
